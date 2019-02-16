@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <h1>Médicos</h1>
 
-            <a href="medicos/add" class="btn btn-success"> Cadastrar Médico </a>
+            <a href="./medico/add" class="btn btn-success"> Cadastrar Médico </a>
 
             <table class="table table-bordered table-striped">
                 <thead>
