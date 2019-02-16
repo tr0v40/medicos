@@ -34,17 +34,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             echo'<td>'.$medico->NOME.'</td>';
                             echo '<td class="text-right">'.$medico->CRM.'</td>';
                             echo '<td class="text-center">';
-                                echo '<a href="/doctor/editar/'.$medico->ID.'
+                                echo '<a href="./medico/att/'.$medico->ID.'
                                 "title="Editar cadastro" class="btn btn-warning">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                                 </span></a>';
 
-                                echo '<a href="/doctor/apagar/'.$medico->ID.'
+                                echo '<a href="/medico/apagar/'.$medico->ID.'
                                 "title="Apagar cadastro" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true">
                                 </span></a>';
 
-                                echo '<a href="/doctor/detalhes/'.$medico->ID.'
+                                echo '<a href="/medico/detalhes/'.$medico->ID.'
                                 "title="Detalhes dos médicos" class="btn btn-info">
                                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
                                 </span></a>';

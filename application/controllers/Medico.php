@@ -40,9 +40,37 @@ class Medico extends CI_Controller {
 			$dados['NOME'] = $this->input->post('NOME');
 			$dados['CRM'] = $this->input->post('CRM');
 
+			if($this->input->post('ID') != NULL)
+			{
+				$this->medico->attMedicos($dados, $this->input->post('ID'));
+			}else{
+
 			$this->medico->addMedicos($dados);
+			}
 
 			redirect("/");
 		}
+	}
+
+	//Atualizar cadastros
+	public function att($ID=NULL)
+	{
+		if ($ID == NULL)
+		{
+			redirect("/");
+		}
+	
+	
+	$this->load->model('medicos_model', 'medicos');
+
+	$query = $this->medicos->getMedicosByID($ID);
+
+	if ($query == NULL)
+	{
+		redirect("/");
+	}
+	$dados['medico'] = $query;
+
+	$this->load->view('attmedicos', $dados);
 	}
 }

@@ -17,5 +17,24 @@ class Medicos_model extends CI_Model
 			$this->db->insert('medico', $dados);
 		endif;
 	}
+
+	public function getMedicosByID($ID=NULL)
+	{
+		if($ID != NULL):
+			$this->db->where('ID', $ID);
+			$this->db->limit(1);
+			$query = $this->db->get("medico");
+			return $query->row();
+		endif;
+	}
+
+	public function attMedicos($dados=NULL, $ID=NULL)
+	{
+
+		if ($dados != NULL && $ID != NULL):
+			$this->db->update('medico', $dados, array("ID"=>$ID));
+		endif;
+
+	}
 }
 
