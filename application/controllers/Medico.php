@@ -61,16 +61,38 @@ class Medico extends CI_Controller {
 		}
 	
 	
-	$this->load->model('medicos_model', 'medicos');
+		$this->load->model('medicos_model', 'medicos');
 
-	$query = $this->medicos->getMedicosByID($ID);
+		$query = $this->medicos->getMedicosByID($ID);
 
-	if ($query == NULL)
+		if ($query == NULL)
+			{
+				redirect("/");
+			}
+			$dados['medico'] = $query;
+
+			$this->load->view('attmedicos', $dados);
+		}
+
+	public function apagar($ID=NULL)
 	{
-		redirect("/");
-	}
-	$dados['medico'] = $query;
+		if($ID == NULL){
+			redirect("/");
+		}
 
-	$this->load->view('attmedicos', $dados);
+		$this->load->model('medicos_model', 'medicos');
+
+		$query = $this->medicos->getMedicosByID($ID);
+		
+		if($query != NULL){
+
+			$this->medicos->delMedicos($query->ID);
+			redirect("/");
+
+		} else {
+
+			redirect("/");
+
+		}
 	}
 }

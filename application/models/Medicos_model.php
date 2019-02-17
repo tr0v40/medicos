@@ -36,5 +36,11 @@ class Medicos_model extends CI_Model
 		endif;
 
 	}
+	public function delMedicos($ID=NULL)
+	{
+		if ($ID != NULL):
+			$this->db->delete('medico', array('ID'=>$ID));
+		endif;
+	}
 }
 

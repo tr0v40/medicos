@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true">
                                 </span></a>';
 
-                                echo '<a href="/medico/apagar/'.$medico->ID.'
+                                echo '<a href="./medico/apagar/'.$medico->ID.'
                                 "title="Apagar cadastro" class="btn btn-danger">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true">
                                 </span></a>';
