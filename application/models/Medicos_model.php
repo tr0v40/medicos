@@ -3,11 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Medicos_model extends CI_Model 
 {
-	public function getEstado()
-	{
-		$query = $this->db->get('estado');
-		return $query->result();
-	}
 	public function getMedicos()
 	{
 		$query = $this->db->get('medico');
@@ -47,5 +42,20 @@ class Medicos_model extends CI_Model
 			$this->db->delete('medico', array('ID'=>$ID));
 		endif;
 	}
+
+	// public function mhe(){
+    //     $this->db->select('*');
+    //     $this->db->from('medicos');
+    //     $this->db->join('medicos_has_especializacao', 'medicos_has_especializacao.ESPEC_ID = especializacao.ID_ESPEC');
+    //     $this->db->join('medicos', 'medicos.ID = medicos_has_especializacao.MEDICO_ID ');
+	// 	$query = $this->db->get();
+	// 	return $query->row();
+
+	// }
+	public function listEsp()
+    {
+        $esp = $this->db->get('especializacao', 'e');
+        return $esp->result();
+    }
 }
 

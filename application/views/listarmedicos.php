@@ -1,22 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <title>Médicos</title>
-</head>
-<body>
     <div class="container">
         <div class="row">
-            <h1>Médicos</h1>
+            <h1><?php echo $titulo; ?></h1>
 
-            <a href="./medico/add" class="btn btn-success"> Cadastrar Médico </a>
+           
 
             <table class="table table-bordered table-striped">
                 <thead>
@@ -50,10 +37,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true">
                                 </span></a>';
 
-                                echo '<a href="/medico/detalhes/'.$medico->ID.'
-                                "title="Detalhes dos médicos" class="btn btn-info">
-                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
-                                </span></a>';
 
                             echo '</td>';
                         echo '</tr>';

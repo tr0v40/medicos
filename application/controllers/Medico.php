@@ -6,6 +6,8 @@ class Medico extends CI_Controller {
 	
 	public function index()
 	{
+
+		$data['titulo'] = 'Médicos';
 		//Carregar model Medicos
 		$this->load->model('Medicos_model','medicos');
 		// Cria um array dde dados para armazenar medicos
@@ -14,27 +16,25 @@ class Medico extends CI_Controller {
 		$this->load->helper('funcoes_helper');
 		// Carrega a view Lista de Medico e passa como 
 		// parametros a array Medicos
-		$this->load->view('listarmedicos', $data);
+		$this->load->view('layout/topo', $data);
+		$this->load->view('listarmedicos');
+		$this->load->view('layout/rodape');
 	}
 	// pagina de adicionar Medico
 	public function add()
 	{
+		$data['titulo'] = 'Cadastro de Médicos';
 	// carrga o Model Medicos
 	$this->load->model('Medicos_model', 'medicos');
 
 	//carrega a view
+	$this->load->view('layout/topo', $data);
 	$this->load->view('addmedicos');
+	$this->load->view('layout/rodape');
 	}
 
 	public function salvar()
 	{
-		if($this->input->post('NOME') == NULL)
-		{
-			echo 'O campo Nome é obrigatório';
-			echo '<a href="../medico/add" title="voltar">Voltar</a>';
-		} else {
-			
-
 			$this->load->model('medicos_model', 'medico');
 			
 			$dados['NOME'] = $this->input->post('NOME');
@@ -42,10 +42,10 @@ class Medico extends CI_Controller {
 			$dados['TEL'] = $this->input->post('TEL');
 			$dados['ESTADO'] = $this->input->post('ESTADO');
 			$dados['CIDADE'] = $this->input->post('CIDADE');
-			}
 			
 			if($this->input->post('ID') != NULL)
 			{
+				
 				$this->medico->attMedicos($dados, $this->input->post('ID'));
 			}else{
 
@@ -62,8 +62,7 @@ class Medico extends CI_Controller {
 		{
 			redirect("/");
 		}
-	
-	
+		$data['titulo'] = 'Alterar Cadastro';
 		$this->load->model('medicos_model', 'medicos');
 
 		$query = $this->medicos->getMedicosByID($ID);
@@ -73,8 +72,9 @@ class Medico extends CI_Controller {
 				redirect("/");
 			}
 			$dados['medico'] = $query;
-
+			$this->load->view('layout/topo', $data);
 			$this->load->view('attmedicos', $dados);
+			$this->load->view('layout/rodape');
 		}
 
 	public function apagar($ID=NULL)
@@ -82,7 +82,6 @@ class Medico extends CI_Controller {
 		if($ID == NULL){
 			redirect("/");
 		}
-
 		$this->load->model('medicos_model', 'medicos');
 
 		$query = $this->medicos->getMedicosByID($ID);
