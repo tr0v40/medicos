@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Atualizar Cadastro de Médicos</title>
 </head>
 <body>
@@ -33,6 +34,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input type="text" name="CRM" value="<?php echo $medico->CRM ?>" class="form-control">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <label>Telefone</label>
+                        <input type="text" name="TEL" value="<?php echo $medico->TEL ?>" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Ajax da api estados -->
+
+
                 
                 <div class="row">
                     <div class="col-md-2">

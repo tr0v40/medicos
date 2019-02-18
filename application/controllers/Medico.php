@@ -8,11 +8,10 @@ class Medico extends CI_Controller {
 	{
 		//Carregar model Medicos
 		$this->load->model('Medicos_model','medicos');
-
 		// Cria um array dde dados para armazenar medicos
 		//Executa função medicos_model getMedicos
 		$data['medicos'] = $this->medicos->getMedicos();
-		
+		$this->load->helper('funcoes_helper');
 		// Carrega a view Lista de Medico e passa como 
 		// parametros a array Medicos
 		$this->load->view('listarmedicos', $data);
@@ -34,12 +33,17 @@ class Medico extends CI_Controller {
 			echo 'O campo Nome é obrigatório';
 			echo '<a href="../medico/add" title="voltar">Voltar</a>';
 		} else {
+			
 
 			$this->load->model('medicos_model', 'medico');
 			
 			$dados['NOME'] = $this->input->post('NOME');
 			$dados['CRM'] = $this->input->post('CRM');
-
+			$dados['TEL'] = $this->input->post('TEL');
+			$dados['ESTADO'] = $this->input->post('ESTADO');
+			$dados['CIDADE'] = $this->input->post('CIDADE');
+			}
+			
 			if($this->input->post('ID') != NULL)
 			{
 				$this->medico->attMedicos($dados, $this->input->post('ID'));
@@ -50,7 +54,6 @@ class Medico extends CI_Controller {
 
 			redirect("/");
 		}
-	}
 
 	//Atualizar cadastros
 	public function att($ID=NULL)

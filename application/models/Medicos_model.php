@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Medicos_model extends CI_Model 
 {
+	public function getEstado()
+	{
+		$query = $this->db->get('estado');
+		return $query->result();
+	}
 	public function getMedicos()
 	{
 		$query = $this->db->get('medico');

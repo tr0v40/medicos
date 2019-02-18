@@ -21,8 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th class="text-center">Médicos</th>
-                        <th class="text-right">CRM</th>
+                        <th class="text-left">Médicos</th>
+                        <th class="text-center">CRM</th>
+                        <th class="text-right">Telefone</th>
+                        <th class="text-right">Estado</th>
+                        <th class="text-right">Cidade</th>
                         <th class="text-center">Ações</th>
                     </tr>
                 </thead>
@@ -33,6 +36,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         echo '<tr>';
                             echo'<td>'.$medico->NOME.'</td>';
                             echo '<td class="text-right">'.$medico->CRM.'</td>';
+                            echo '<td class="text-right">'.$medico->TEL.'</td>';
+                            echo '<td class="text-right">'.formataEstado($medico->ESTADO).'</td>';
+                            echo '<td class="text-right">'.$medico->CIDADE.'</td>';
                             echo '<td class="text-center">';
                                 echo '<a href="./medico/att/'.$medico->ID.'
                                 "title="Editar cadastro" class="btn btn-warning">
@@ -57,6 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 ?>
             </table>
+
             <div class="row">
                     <div class="col-md-12">
                         Total de Médicos Registrados: <?php echo $contador ?>
